@@ -1,0 +1,222 @@
+<template>
+    <div :class="['flex-1 p-6 chat-container', { expanded: sidebarOpen }]">
+      <div class="flex items-center justify-between mb-4">
+        <button @click="toggleSidebar" class="text-gray-400 hover:text-gray-200">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="flex space-x-3">
+          <button id="dark-mode-toggle" class="toggle-btn p-2 rounded-lg bg-gray-700 text-gray-400 hover:bg-gray-600">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button id="notifications-toggle" class="toggle-btn p-2 rounded-lg bg-gray-700 text-gray-400 hover:bg-gray-600">
+            <i class="fas fa-bell"></i>
+          </button>
+          <button id="speech-to-text-toggle" class="toggle-btn p-2 rounded-lg bg-gray-700 text-gray-400 hover:bg-gray-600">
+            <i class="fas fa-microphone"></i>
+          </button>
+          <button id="text-to-speech-toggle" class="toggle-btn p-2 rounded-lg bg-gray-700 text-gray-400 hover:bg-gray-600">
+            <i class="fas fa-volume-up"></i>
+          </button>
+        </div>
+      </div>
+  
+      <div class="mb-8">
+        <h2 class="text-3xl font-bold mb-3">Welcome to Tuesday AI Chatbot</h2>
+        <p class="text-gray-400">How may I assist you today?</p>
+      </div>
+  
+      <div class="mb-8 space-y-4">
+        <h3 class="text-xl font-bold">Example Prompts:</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <PromptCard text="What can you do?" description="Discover the capabilities of Tuesday AI." />
+          <PromptCard text="Help me plan my day." description="Get assistance in organizing your tasks." />
+          <PromptCard text="Tell me a joke." description="Lighten the mood with a bit of humor." />
+        </div>
+      </div>
+  
+      <div class="mb-8">
+        <h3 class="text-xl font-bold">Limitations:</h3>
+        <ul class="list-disc list-inside text-gray-400">
+          <li>May not understand all inputs.</li>
+          <li>Responses may not always be accurate.</li>
+          <li>Limited ability to handle complex tasks.</li>
+        </ul>
+      </div>
+  
+      <div class="flex flex-col space-y-4">
+        <div class="bg-gray-800 p-4 rounded-lg shadow-lg overflow-hidden">
+          <div class="text-sm text-gray-300 space-y-2">
+            <div class="flex items-center space-x-2">
+              <div class="rounded-full bg-blue-500 h-8 w-8 flex items-center justify-center">
+                <i class="fas fa-user"></i>
+              </div>
+              <div>
+                <p class="text-blue-300">User:</p>
+                <p>Hello, Tuesday AI!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="flex space-x-2">
+          <input type="text" class="flex-1 p-2 md:p-3 rounded-lg bg-gray-800 focus:outline-none focus:ring focus:border-blue-300" placeholder="Type your message...">
+          <button class="bg-blue-600 hover:bg-blue-700 text-white p-2 md:p-3 rounded-lg">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </template>
+  
+  <script lang="ts" setup>
+  import { ref } from 'vue'
+  import PromptCard from './PromptCard.vue'
+  
+  const sidebarOpen = ref(false)
+  
+  const toggleSidebar = () => {
+    sidebarOpen.value = !sidebarOpen.value
+  }
+  </script>
+  
+  <style scoped>
+  .chat-container.expanded {
+    margin-left: 250px;
+  }
+  
+  @media (max-width: 768px) {
+    .chat-container.expanded {
+      margin-left: 200px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .chat-container.expanded {
+      margin-left: 180px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .chat-container.expanded {
+      margin-left: 160px;
+    }
+  }
+  </style>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <template>
+  <div :class="['flex-1 p-6 chat-container', { expanded: sidebarOpen }]">
+    <div class="flex items-center justify-between mb-4">
+      <button @click="toggleSidebar" class="text-gray-400 hover:text-gray-200">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="flex space-x-3">
+        <button id="dark-mode-toggle" class="toggle-btn p-2 rounded-lg bg-gray-700 text-gray-400 hover:bg-gray-600">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button id="notifications-toggle" class="toggle-btn p-2 rounded-lg bg-gray-700 text-gray-400 hover:bg-gray-600">
+          <i class="fas fa-bell"></i>
+        </button>
+        <button id="speech-to-text-toggle" class="toggle-btn p-2 rounded-lg bg-gray-700 text-gray-400 hover:bg-gray-600">
+          <i class="fas fa-microphone"></i>
+        </button>
+        <button id="text-to-speech-toggle" class="toggle-btn p-2 rounded-lg bg-gray-700 text-gray-400 hover:bg-gray-600">
+          <i class="fas fa-volume-up"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mb-8">
+      <h2 class="text-3xl font-bold mb-3">Welcome to Tuesday AI Chatbot</h2>
+      <p class="text-gray-400">How may I assist you today?</p>
+    </div>
+
+    <div class="mb-8 space-y-4">
+      <h3 class="text-xl font-bold">Example Prompts:</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <PromptCard text="What can you do?" description="Discover the capabilities of Tuesday AI." />
+        <PromptCard text="Help me plan my day." description="Get assistance in organizing your tasks." />
+        <PromptCard text="Tell me a joke." description="Lighten the mood with a bit of humor." />
+      </div>
+    </div>
+
+    <div class="mb-8">
+      <h3 class="text-xl font-bold">Limitations:</h3>
+      <ul class="list-disc list-inside text-gray-400">
+        <li>May not understand all inputs.</li>
+        <li>Responses may not always be accurate.</li>
+        <li>Limited ability to handle complex tasks.</li>
+      </ul>
+    </div>
+
+    <div class="flex flex-col space-y-4">
+      <div class="bg-gray-800 p-4 rounded-lg shadow-lg overflow-hidden">
+        <div class="text-sm text-gray-300 space-y-2">
+          <div class="flex items-center space-x-2">
+            <div class="rounded-full bg-blue-500 h-8 w-8 flex items-center justify-center">
+              <i class="fas fa-user"></i>
+            </div>
+            <div>
+              <p class="text-blue-300">User:</p>
+              <p>Hello, Tuesday AI!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex space-x-2">
+        <input type="text" class="flex-1 p-2 md:p-3 rounded-lg bg-gray-800 focus:outline-none focus:ring focus:border-blue-300" placeholder="Type your message...">
+        <button class="bg-blue-600 hover:bg-blue-700 text-white p-2 md:p-3 rounded-lg">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+import PromptCard from './PromptCard.vue'
+
+const sidebarOpen = ref(false)
+
+const toggleSidebar = () => {
+  sidebarOpen.value = !sidebarOpen.value
+}
+</script>
+
+<style scoped>
+.chat-container.expanded {
+  margin-left: 250px;
+}
+
+@media (max-width: 768px) {
+  .chat-container.expanded {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .chat-container.expanded {
+    margin-left: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-container.expanded {
+    margin-left: 160px;
+  }
+}
+</style>

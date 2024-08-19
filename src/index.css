@@ -1,0 +1,199 @@
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(-250px);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+  
+  .slide-in {
+    animation: slideIn 0.5s ease-in-out forwards;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1A202C;
+    color: #E2E8F0;
+  }
+  
+  .sidebar {
+    transform: translateX(-250px);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .chat-container {
+    transition: margin-left 0.3s ease-in-out;
+  }
+  
+  .chat-container.expanded {
+    margin-left: 250px;
+  }
+  
+  .toggle-btn {
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .toggle-btn.active {
+    background-color: #4A5568;
+  }
+  
+  .card {
+    background-color: #2D3748;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-0.5rem);
+  }
+  
+  .msg_cotainer_send {
+    background-color: #58cc71;
+  }
+  
+  .msg_cotainer {
+    background-color: rgb(82, 172, 255);
+  }
+  
+  /* Media Queries */
+  @media (max-width: 1024px) {
+    .sidebar {
+      width: 220px;
+    }
+  
+    .chat-container.expanded {
+      margin-left: 220px;
+    }
+  
+    h2 {
+      font-size: 2rem;
+    }
+  
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .chat-container {
+      margin-left: 0;
+      padding: 1rem;
+    }
+  
+    .sidebar {
+      width: 200px;
+    }
+  
+    .chat-container.expanded {
+      margin-left: 200px;
+    }
+  
+    h2 {
+      font-size: 1.75rem;
+    }
+  
+    h3 {
+      font-size: 1.25rem;
+    }
+  
+    .msg_cotainer,
+    .msg_cotainer_send {
+      padding: 0.75rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .chat-container {
+      margin-left: 0;
+      padding: 0.5rem;
+    }
+  
+    .sidebar {
+      width: 180px;
+    }
+  
+    .chat-container.expanded {
+      margin-left: 180px;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    h3 {
+      font-size: 1.1rem;
+    }
+  
+    .card {
+      padding: 0.75rem;
+    }
+  
+    .toggle-btn {
+      padding: 0.5rem;
+    }
+  
+    .msg_cotainer,
+    .msg_cotainer_send {
+      padding: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .chat-container {
+      margin-left: 0;
+      padding: 0.5rem;
+    }
+  
+    .sidebar {
+      width: 160px;
+    }
+  
+    .chat-container.expanded {
+      margin-left: 160px;
+    }
+  
+    h2 {
+      font-size: 1.25rem;
+    }
+  
+    h3 {
+      font-size: 1rem;
+    }
+  
+    .card {
+      padding: 0.5rem;
+    }
+  
+    .toggle-btn {
+      padding: 0.5rem;
+    }
+  
+    .msg_cotainer,
+    .msg_cotainer_send {
+      padding: 0.4rem;
+    }
+  }
+  
